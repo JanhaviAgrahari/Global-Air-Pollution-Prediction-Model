@@ -1,0 +1,68 @@
+<html>
+
+<body>
+    <div class="login">
+        <h1>Air Quality Impact on Health Indicator</h1>
+
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <h1>
+                <legend>Predict Health Impact Based on Air Quality</legend>
+            </h1>
+            
+            <!-- Country Selection -->
+            <div class="mb-3">
+                <label class="form-label">Country</label>
+                <select class="form-control" name="country" placeholder="Select your Country" required>
+                    <option class="placeholder" selected disabled value="">Select your Country</option>
+                    <option value="USA">USA</option>
+                    <option value="India">India</option>
+                    <option value="China">China</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
+            <!-- CO AQI Value -->
+            <div class="mb-3">
+                <label class="form-label">CO AQI Value</label>
+                <input class="form-control" type="number" name="co_aqi_value" placeholder="Enter CO AQI Value" min="0" required />
+            </div>
+
+            <!-- Ozone AQI Value -->
+            <div class="mb-3">
+                <label class="form-label">Ozone AQI Value</label>
+                <input class="form-control" type="number" name="ozone_aqi_value" placeholder="Enter Ozone AQI Value" min="0" required />
+            </div>
+
+            <!-- NO2 AQI Value -->
+            <div class="mb-3">
+                <label class="form-label">NO2 AQI Value</label>
+                <input class="form-control" type="number" name="no2_aqi_value" placeholder="Enter NO2 AQI Value" min="0" required />
+            </div>
+
+            <!-- AQI Category Selection -->
+            <div class="mb-3">
+                <label class="form-label">AQI Category</label>
+                <select class="form-control" name="aqi_category" placeholder="Select AQI Category" required>
+                    <option class="placeholder" selected disabled value="">Select AQI Category</option>
+                    <option value="Good">Good</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Unhealthy for Sensitive Groups">Unhealthy for Sensitive Groups</option>
+                    <option value="Unhealthy">Unhealthy</option>
+                    <option value="Very Unhealthy">Very Unhealthy</option>
+                    <option value="Hazardous">Hazardous</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Predict Health Impact" />
+            </div>
+        </form>
+
+        <h2>
+            The prediction is {{ results }}
+        </h2>
+    </div>
+</body>
+
+</html>
